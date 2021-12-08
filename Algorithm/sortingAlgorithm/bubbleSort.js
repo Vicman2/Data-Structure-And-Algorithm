@@ -16,7 +16,7 @@ function bubbleSort(arr){
 
 function bubbleSortModified(arr){
     let noSwap = true
-    for(let i = arr.length; i< arr.length; i--){
+    for(let i = arr.length; i >0; i--){
         for(let j= 0; j < i+1;j++){
             if(arr[j]  > arr[j +1]){
                 let temp = arr[j]
@@ -31,4 +31,4 @@ function bubbleSortModified(arr){
 }
 
 
-console.log(bubbleSort([4,6,2,7,9,2,10,5]))
+console.log(bubbleSortModified([4,6,2,7,9,2,10,5]))
