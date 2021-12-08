@@ -1,10 +1,10 @@
-function maxSubArraySun(arr, num){
+function maxSubArraySum(arr, num){
     if(arr.length < num) return null
 
     let maxSum = 0;
     let tempSum = 0;
 
-    for(let i = 0 ; i< arr.length; i++){
+    for(let i = 0 ; i< num; i++){
         maxSum += arr[i]
     }
     tempSum = maxSum
@@ -15,3 +15,5 @@ function maxSubArraySun(arr, num){
     }
     return maxSum
 }
+
+console.log(maxSubArraySum([4,5,2,3,6,2,2,5,7,3,3,2,6,6,6,6,6,2,1,1], 3))
