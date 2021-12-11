@@ -35,7 +35,6 @@ function mergeSort(arr){
     let arr2 = mergeSort(arr.slice(midpoint))
     
     let theMerged = merge(arr1, arr2)
-    console.log(theMerged)
     return theMerged
 }
 
