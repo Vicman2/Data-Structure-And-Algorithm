@@ -47,6 +47,22 @@ class SinglyLinkedList{
         return current
 
     }
+
+    shift(){
+        if(this.length === 0) return undefined
+        let currentHead = this.head
+
+        this.head = currentHead.next
+
+        this.length--
+
+        if(this.length == 0){
+            this.tail = null
+        }
+
+        return currentHead
+        
+    }
 }
 
 let aSLL = new SinglyLinkedList()
@@ -57,12 +73,6 @@ aSLL.push("Hello")
 aSLL.push("Goodbye")
 aSLL.push("!")
 
-aSLL.pop()
-
-console.log(aSLL)
-aSLL.pop()
-
-console.log(aSLL)
-aSLL.pop()
+aSLL.shift()
 
 console.log(aSLL)
