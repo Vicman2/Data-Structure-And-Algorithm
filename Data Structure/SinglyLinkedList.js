@@ -29,16 +29,21 @@ class SinglyLinkedList{
     pop(){
         if(!this.head) return undefined
         let current = this.head
-        let temp = null
+        let temp = current
 
         while(current.next){
             temp = current
             current = current.next
         }
         
-        temp.next = null
         this.tail = temp
+        this.tail.next = null
+
         this.length--
+        if(this.length == 0){
+            this.head = null; 
+            this.tail = null
+        }
         return current
 
     }
@@ -52,6 +57,12 @@ aSLL.push("Hello")
 aSLL.push("Goodbye")
 aSLL.push("!")
 
+aSLL.pop()
+
+console.log(aSLL)
+aSLL.pop()
+
+console.log(aSLL)
 aSLL.pop()
 
 console.log(aSLL)
