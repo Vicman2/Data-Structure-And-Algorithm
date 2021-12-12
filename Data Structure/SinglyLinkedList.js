@@ -63,6 +63,62 @@ class SinglyLinkedList{
         return currentHead
         
     }
+
+    unshift(val){
+        let newNode = new Node(val)
+        if(!this.head){
+            this.head = newNode
+            this.tail = newNode
+        }else{
+
+            let currentHead = this.head
+            newNode.next = currentHead
+            this.head = newNode
+        }
+        this.length++
+        return this
+    }
+
+    get(index){
+        if(!this.head || index > this.length-1 || index < 0) return null
+
+        let current = this.head 
+        let currentIndex = 0
+        while(current.next ){
+            if(currentIndex === index){
+                break;
+            }
+            current = current.next
+            currentIndex++
+        }
+        return current
+    }
+
+    set(index, val){
+        if(index > this.length-1 || index < 0) return null
+        let current = this.head
+        let counter = 0
+
+        while(index !== counter){
+            current = current.next
+            counter++
+        }
+        current.val = val
+        return current
+    }
+
+    insert(index, val){
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length) return !!this.push(val)
+        if(index === 0 ) return !!this.unshift(val)
+        let newNode = new Node(val);
+        let previous = this.get(index -1)
+        let temp = previous.next;
+        previous.next = newNode
+        newNode.next = temp;
+        this.length++
+        return true
+    }
 }
 
 let aSLL = new SinglyLinkedList()
@@ -71,8 +127,8 @@ console.log(aSLL)
 
 aSLL.push("Hello")
 aSLL.push("Goodbye")
+aSLL.push("You know")
 aSLL.push("!")
+aSLL.insert(2,"Lahuuu")
 
-aSLL.shift()
-
-console.log(aSLL)
+console.log(aSLL.get(1))
