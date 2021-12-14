@@ -132,6 +132,28 @@ class SinglyLinkedList{
         return removed
 
     }
+
+    reverse(){
+       let node = this.head
+       this.head = this.tail
+       this.tail = node 
+       let prev = null
+       let next
+
+       for(let i = 0; i <this.length; i++){
+           next = node.next
+           node.next = prev
+           prev = node
+           node = next 
+       }
+       return this
+    }
+    //[4, 6, 78, 26, 90]
+    //       NE      HE
+    //TA
+    //   NO
+    //PR
+    //4->null
 }
 
 let aSLL = new SinglyLinkedList()
@@ -143,7 +165,6 @@ aSLL.push("Goodbye")
 aSLL.push("You know")
 aSLL.push("!")
 aSLL.insert(2,"Lahuuu")
-
-console.log(aSLL.remove(1))
+aSLL.reverse()
 
 console.log(aSLL)
