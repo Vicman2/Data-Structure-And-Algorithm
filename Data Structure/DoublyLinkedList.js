@@ -102,6 +102,59 @@ class DoublyLinkedList{
         }
         return value
     }
+
+    set(index, val){
+        
+        const theNode = this.get(index)
+        if(!theNode) return false
+
+        theNode.val = val
+        return true
+    }
+
+    insert(index, val){
+        if(index < 0 || index > this.length) return false
+        
+        if(index === 0 ) return !!this.unshift(val)
+
+        if(index === this.length) return !!this.push(val)
+
+        let theNodeBefore = this.get(index-1)
+        let thePreviosNode = theNodeBefore.next
+
+        let newNode = new Node(val)
+        theNodeBefore.next = newNode
+        newNode.next = thePreviosNode
+        newNode.prev = theNodeBefore
+        thePreviosNode.prev = newNode
+
+        this.length++
+
+        return true
+
+    }
+
+    remove(index){
+        if(index < 0 || index >= this.length) return undefined
+
+        if(index === 0 ) return !!this.shift()
+
+        if(index === this.length) return !!this.pop()
+
+        let theNodeBefore = this.get(index-1)
+        let theNodeToRemove = theNodeBefore.next
+        let theNextNode = theNodeToRemove.next
+
+        theNodeBefore.next = theNextNode
+        theNextNode.prev = theNodeBefore
+        theNodeToRemove.next = null
+        theNodeToRemove.prev = null
+        
+
+        this.length--
+        return theNodeToRemove
+
+    }
 }
 
 
@@ -112,4 +165,6 @@ DLL.push(84)
 DLL.push(53)
 DLL.push(90)
 DLL.push(67)
-console.log(DLL.get(0))
+
+DLL.set(2, 99)
+console.log(DLL.get(2))
