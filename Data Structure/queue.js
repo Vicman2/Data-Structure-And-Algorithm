@@ -31,8 +31,6 @@ class Queue{
 
         let temp = this.first;
         if(this.first === this.last){
-            console.log(this.first, this.last, "Here")
-            console.log("I am equal")
             this.last = null;
         }
 
