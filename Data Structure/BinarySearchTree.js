@@ -54,6 +54,22 @@ class BinarySearchTree{
 
         return positionToGo
     }
+
+    get(val){
+        if(!this.root) return undefined
+        let current = this.root
+        while(current){
+            if(current.value == val) return current
+            let position = this.takeLeftOrRight(current, val)
+
+            if(position == "left" ){
+                current = current.left
+            }else if(position == "right"){
+                current = current.right
+            }
+        }
+        return null
+    }
 }
 
 var tree = new BinarySearchTree();
@@ -65,4 +81,5 @@ tree.insert(2)
 tree.insert(7)
 tree.insert(11)
 tree.insert(16)
+console.log(tree.get(18))
 console.log(tree)
