@@ -1,36 +1,34 @@
-function sumZero(){
-    let left = 0 ; 
-    let right = arr.length - 1; 
-
-    while(left <right){
-        let sum = arr[left] + arr[right]
-        if(sum === 0){
-            return [arr[left], arr[right]]
-        }else if(sum >0){
-            right--;
+function sumZero(arr){
+    let theArrayOfZeroSum = []
+    let leftPointer = 0
+    let rightPointer = arr.length-1
+    while(leftPointer < rightPointer){
+        let theSum = arr[leftPointer] + arr[rightPointer]
+        if(theSum < 0){
+            leftPointer++
+        }else if(theSum > 0 ){
+            rightPointer--
         }else{
-            left++;
+            theArrayOfZeroSum.push([arr[leftPointer], arr[rightPointer]])
+            leftPointer++
+            rightPointer--
         }
     }
+    return theArrayOfZeroSum
 }
 
-function countCountUniqueValues(sArray){
-    if(sArray.length === 0) return 0
-    if(sArray.length === 1) return 1
-    let first = 0
-    let second = 1
+// console.log(sumZero([-4, -3, -2, 1, 2, 3, 5]))
 
-    while(second <sArray.length){
-        if(sArray[first] === sArray[second]){
-           
-            second++
-        }else{
-            first++
-            sArray[first] = sArray[second]
+function countUniqueValues(arr){
+    let firstPointer = 0;
+
+    for(let i =1; i<arr.length; i++){
+        if(arr[firstPointer] !== arr[i]){
+            firstPointer++
+            arr[firstPointer] = arr[i]
         }
     }
-    return first + 1
-
+    return firstPointer +1
 }
 
-console.log(countCountUniqueValues([1,1,2,2,2,2,2]))
+console.log(countUniqueValues([2,3,4,4,4,5,5,6,7,7,7,8,9,10,10]))
