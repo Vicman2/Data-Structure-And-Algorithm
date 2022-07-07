@@ -58,5 +58,5 @@ console.log(naiveStringSearch("zahosdsdjkho", "ho"))
 
 
 
-// console.log(binarySearchOnSortedNumbers([2,4,5,7,8,9,10,15], 9))
+console.log(binarySearchOnSortedNumbers([2,4,5,7,8,9,10,15], 10))
 
