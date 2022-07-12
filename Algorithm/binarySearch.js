@@ -4,7 +4,6 @@ function binarySearch(arr, value){
     let midPoint = Math.floor((leftPointer + rightPointer)/2)
 
     if(arr[leftPointer] > value || arr[rightPointer]< value) return null
-    console.log('sdsd')
     
     while(leftPointer <= rightPointer){
         console.log(leftPointer, rightPointer, midPoint)
