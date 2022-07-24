@@ -70,16 +70,39 @@ class BinarySearchTree{
         }
         return null
     }
+
+    breathFirstSearch(){
+        let queue = []
+        let visited = []
+    
+        if(!this.root) return visited
+        queue.push(this.root)
+    
+        while(queue.length> 0){
+            const removed = queue.shift()
+    
+            visited.push(removed.value)
+    
+            if(removed.left){
+                queue.push(removed.left)
+            }
+    
+            if(removed.right){
+                queue.push(removed.right)
+            }
+            
+        }
+    
+        return visited
+    }
 }
 
 var tree = new BinarySearchTree();
 
 tree.insert(10)
-tree.insert(5)
-tree.insert(13)
-tree.insert(2)
-tree.insert(7)
-tree.insert(11)
-tree.insert(16)
-console.log(tree.get(18))
-console.log(tree)
+tree.insert(6)
+tree.insert(15)
+tree.insert(3)
+tree.insert(8)
+tree.insert(20)
+console.log(tree.breathFirstSearch())
