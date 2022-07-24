@@ -115,6 +115,26 @@ class BinarySearchTree{
 
         return visited
     }
+
+    depthFirstSearchPostOrder(){
+        const visited = [];
+        const current = this.root
+
+        const helper = (node)=>{
+            if(node.left){
+                helper(node.left)
+            }
+            
+            if(node.right){
+                helper(node.right)
+            }
+            visited.push(node.value)
+        }
+
+        helper(current)
+
+        return visited
+    }
 }
 
 var tree = new BinarySearchTree();
@@ -125,4 +145,4 @@ tree.insert(15)
 tree.insert(3)
 tree.insert(8)
 tree.insert(20)
-console.log(tree.depthFirstSearchPreOrder())
+console.log(tree.depthFirstSearchPostOrder())
