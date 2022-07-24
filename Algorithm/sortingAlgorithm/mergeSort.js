@@ -1,11 +1,11 @@
 
 
 function merge(arr1, arr2){
-    let result = []
+    let result = [];
     let arr1Pointer = 0;
     let arr2Pointer = 0;
-    while(arr1Pointer < arr1.length && arr2Pointer < arr2.length ){
-        if(arr1[arr1Pointer] <arr2[arr2Pointer]){
+    while(arr1Pointer< arr1.length && arr2Pointer < arr2.length){
+        if(arr1[arr1Pointer] < arr2[arr2Pointer]){
             result.push(arr1[arr1Pointer])
             arr1Pointer++
         }else{
@@ -23,7 +23,6 @@ function merge(arr1, arr2){
         arr2Pointer++
     }
     return result
-
 }
 
 function mergeSort(arr){
@@ -38,5 +37,6 @@ function mergeSort(arr){
     return theMerged
 }
 
+console.log(merge([3,4,7,10], [8,9,11,38]))
 
-console.log(mergeSort([1,10,502, 14, 99, 100]))
+// console.log(mergeSort([1,10,502, 14, 99, 100]))
