@@ -23,11 +23,6 @@ class MaxBinaryHeap{
             this.swap(this.values, parentIndex, index)
             index = parentIndex
             parentIndex = Math.floor((index-1)/2)
-            if(val === 77){
-                console.log(parentIndex, 'hhhshdhhsd')
-                console.log(this.values)
-            }
-            console.log(index)
         }
 
         return this.values
